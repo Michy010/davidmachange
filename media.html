@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Media | Leadership Insights by David Machange</title>
+    <style>
+        /* Global Styles - Consistent with Homepage */
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        /* Header Styles - Consistent with Homepage */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        nav ul li a.active {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Hamburger Menu - Consistent with Homepage */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            z-index: 99;
+            padding: 20px 0;
+            transform: translateY(-150%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .breadcrumb li:after {
+            content: '/';
+            position: absolute;
+            right: -15px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .breadcrumb li:last-child:after {
+            display: none;
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+        }
+        
+        /* Media Intro */
+        .media-intro {
+            padding: 80px 0;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .media-intro .container {
+            max-width: 800px;
+        }
+        
+        .media-intro h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .media-intro p {
+            margin-bottom: 30px;
+            color: var(--text-light);
+            font-size: 18px;
+        }
+        
+        /* Media Tabs */
+        .media-tabs {
+            padding: 60px 0;
+            background-color: #f5f7fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .tabs-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .tabs-header {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .tab-button {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            border-bottom: 3px solid transparent;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-button.active {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+        
+        .tab-button:hover:not(.active) {
+            color: var(--primary-color);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Videos Grid */
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .video-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .video-thumbnail {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .video-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .video-card:hover .video-thumbnail img {
+            transform: scale(1.1);
+        }
+        
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60px;
+            height: 60px;
+            background-color: rgba(231, 76, 60, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .video-content {
+            padding: 20px;
+        }
+        
+        .video-content h3 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .video-meta {
+            display: flex;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .video-meta span {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .video-meta i {
+            margin-right: 5px;
+            color: var(--secondary-color);
+        }
+        
+        /* Podcasts Grid */
+        .podcasts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .podcast-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            transition: transform 0.3s;
+        }
+        
+        .podcast-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .podcast-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .podcast-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .podcast-content {
+            flex: 1;
+        }
+        
+        .podcast-content h3 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .podcast-meta {
+            display: flex;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .podcast-meta span {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .podcast-meta i {
+            margin-right: 5px;
+            color: var(--secondary-color);
+        }
+        
+        /* Press Grid */
+        .press-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .press-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .press-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .press-logo {
+            height: 50px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .press-logo img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+        }
+        
+        .press-content h3 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .press-meta {
+            display: flex;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .press-meta span {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .press-meta i {
+            margin-right: 5px;
+            color: var(--secondary-color);
+        }
+        
+        /* Photo Gallery */
+        .photo-gallery {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+            height: 250px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            color: white;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+        
+        .gallery-caption h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .gallery-caption p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+        }
+        
+        .newsletter h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+        
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+        }
+        
+        .newsletter-form button {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 30px;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Footer - Consistent with Homepage */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 15px;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 30px;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .page-header p {
+                font-size: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .tabs-header {
+                justify-content: flex-start;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 10px;
+            }
+            
+            .videos-grid,
+            .podcasts-grid,
+            .press-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .podcast-card {
+                flex-direction: column;
+            }
+            
+            .podcast-image {
+                width: 100%;
+                height: 150px;
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Mach<span>ange</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="media.html" class="active">Media</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="article.html">Articles</a></li>
+                <li><a href="resources-page.html">Resources</a></li>
+                <li><a href="media.html" class="active">Media</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Media Appearances</h1>
+            <p>Videos, interviews, and press coverage featuring Hon. David Machange</p>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Media</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Media Intro -->
+    <section class="media-intro">
+        <div class="container">
+            <h2>Insights Through Multiple Lenses</h2>
+            <p>Explore my perspectives on healthcare leadership, policy, and education through television appearances, podcast interviews, and press features from around the world.</p>
+        </div>
+    </section>
+
+    <!-- Media Tabs -->
+    <section class="media-tabs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Media</h2>
+            </div>
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tab-button active" data-tab="videos">Videos</button>
+                    <button class="tab-button" data-tab="podcasts">Podcasts</button>
+                    <button class="tab-button" data-tab="press">Press</button>
+                </div>
+                
+                <!-- Videos Tab -->
+                <div class="tab-content active" id="videos">
+                    <div class="videos-grid">
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="images/mentorship.jpeg" alt="TEDx Talk">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="video-content">
+                                <h3>Why Community Trust is the Foundation of Effective Health Policy</h3>
+                                <div class="video-meta">
+                                    <span><i class="far fa-calendar"></i> Aug 8, 2021</span>
+                                    <span><i class="far fa-clock"></i> 18 min</span>
+                                </div>
+                                <p>TEDxDar talk on building public trust in healthcare systems</p>
+                                <a href="#" class="btn btn-outline">Watch Now</a>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="images/policy.jpeg" alt="CNN Interview">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="video-content">
+                                <h3>CNN Interview: Pandemic Leadership in Africa</h3>
+                                <div class="video-meta">
+                                    <span><i class="far fa-calendar"></i> May 15, 2021</span>
+                                    <span><i class="far fa-clock"></i> 12 min</span>
+                                </div>
+                                <p>Discussing Tanzania's COVID-19 response strategies</p>
+                                <a href="#" class="btn btn-outline">Watch Now</a>
+                            </div>
+                        </div>
+                        <div class="video-card">
+                            <div class="video-thumbnail">
+                                <img src="images/udsm.jpeg" alt="World Health Summit">
+                                <div class="play-button">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="video-content">
+                                <h3>Digital Transformation in African Healthcare</h3>
+                                <div class="video-meta">
+                                    <span><i class="far fa-calendar"></i> Mar 15, 2022</span>
+                                    <span><i class="far fa-clock"></i> 45 min</span>
+                                </div>
+                                <p>Keynote at World Health Summit 2022</p>
+                                <a href="#" class="btn btn-outline">Watch Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Podcasts Tab -->
+                <div class="tab-content" id="podcasts">
+                    <div class="podcasts-grid">
+                        <div class="podcast-card">
+                            <div class="podcast-image">
+                                <img src="images/muhas.jpeg" alt="Africa Health Podcast">
+                            </div>
+                            <div class="podcast-content">
+                                <h3>Africa Health Podcast: Reforming Public Health Systems</h3>
+                                <div class="podcast-meta">
+                                    <span><i class="far fa-calendar"></i> June 5, 2023</span>
+                                    <span><i class="far fa-clock"></i> 58 min</span>
+                                    <span><i class="fas fa-headphones"></i> Spotify</span>
+                                </div>
+                                <p>In-depth discussion on Tanzania's healthcare reforms and lessons for the continent</p>
+                                <a href="#" class="btn btn-outline">Listen Now</a>
+                            </div>
+                        </div>
+                        <div class="podcast-card">
+                            <div class="podcast-image">
+                                <img src="images/boston.jpeg" alt="Leadership Today">
+                            </div>
+                            <div class="podcast-content">
+                                <h3>Leadership Today: Crisis Decision Making</h3>
+                                <div class="podcast-meta">
+                                    <span><i class="far fa-calendar"></i> April 18, 2023</span>
+                                    <span><i class="far fa-clock"></i> 42 min</span>
+                                    <span><i class="fas fa-headphones"></i> Apple Podcasts</span>
+                                </div>
+                                <p>Strategies for making tough decisions under pressure</p>
+                                <a href="#" class="btn btn-outline">Listen Now</a>
+                            </div>
+                        </div>
+                        <div class="podcast-card">
+                            <div class="podcast-image">
+                                <img src="images/dea75df0-7e51-4786-879c-b798bc2ad384.jpeg" alt="Education Innovation">
+                            </div>
+                            <div class="podcast-content">
+                                <h3>Education Innovation: Transforming MUHAS</h3>
+                                <div class="podcast-meta">
+                                    <span><i class="far fa-calendar"></i> Feb 28, 2023</span>
+                                    <span><i class="far fa-clock"></i> 35 min</span>
+                                    <span><i class="fas fa-headphones"></i> Google Podcasts</span>
+                                </div>
+                                <p>Lessons from leading digital transformation in higher education</p>
+                                <a href="#" class="btn btn-outline">Listen Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Press Tab -->
+                <div class="tab-content" id="press">
+                    <div class="press-grid">
+                        <div class="press-card">
+                            <div class="press-logo">
+                                <img src="images/boston.jpeg" alt="The EastAfrican">
+                            </div>
+                            <div class="press-content">
+                                <h3>"Tanzania's Health Minister Outlines Digital Transformation Roadmap"</h3>
+                                <div class="press-meta">
+                                    <span><i class="far fa-calendar"></i> March 12, 2021</span>
+                                    <span><i class="far fa-newspaper"></i> The EastAfrican</span>
+                                </div>
+                                <p>Feature interview on Tanzania's healthcare digitalization strategy</p>
+                                <a href="#" class="btn btn-outline">Read Article</a>
+                            </div>
+                        </div>
+                        <div class="press-card">
+                            <div class="press-logo">
+                                <img src="images/udsm.jpeg" alt="The Guardian">
+                            </div>
+                            <div class="press-content">
+                                <h3>"Machange: Why Evidence-Based Policy Matters for Africa"</h3>
+                                <div class="press-meta">
+                                    <span><i class="far fa-calendar"></i> July 8, 2022</span>
+                                    <span><i class="far fa-newspaper"></i> The Guardian</span>
+                                </div>
+                                <p>Op-ed on bridging research and policy implementation</p>
+                                <a href="#" class="btn btn-outline">Read Article</a>
+                            </div>
+                        </div>
+                        <div class="press-card">
+                            <div class="press-logo">
+                                <img src="images/profile.jpg" alt="BBC">
+                            </div>
+                            <div class="press-content">
+                                <h3>"African Universities Must Lead Innovation, Says MUHAS President"</h3>
+                                <div class="press-meta">
+                                    <span><i class="far fa-calendar"></i> January 15, 2023</span>
+                                    <span><i class="far fa-newspaper"></i> BBC Africa</span>
+                                </div>
+                                <p>Interview on the role of African universities in health innovation</p>
+                                <a href="#" class="btn btn-outline">Read Article</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Gallery -->
+    <section class="photo-gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Photo Gallery</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="images/dea75df0-7e51-4786-879c-b798bc2ad384.jpeg" alt="Health Facility Visit">
+                    <div class="gallery-caption">
+                        <h3>Health Facility Visit</h3>
+                        <p>Inspecting new equipment at regional hospital</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/boston.jpeg" alt="Conference Panel">
+                    <div class="gallery-caption">
+                        <h3>Conference Panel</h3>
+                        <p>African Health Leaders Forum 2022</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/dea75df0-7e51-4786-879c-b798bc2ad384.jpeg" alt="Research Presentation">
+                    <div class="gallery-caption">
+                        <h3>Research Presentation</h3>
+                        <p>Sharing findings at international symposium</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/institutions.jpeg" alt="Media Interview">
+                    <div class="gallery-caption">
+                        <h3>Media Interview</h3>
+                        <p>Discussing healthcare policy reforms</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/mentorship.jpeg" alt="University Lecture">
+                    <div class="gallery-caption">
+                        <h3>University Lecture</h3>
+                        <p>Engaging with MUHAS medical students</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="images/institutions.jpeg" alt="TEDx Stage">
+                    <div class="gallery-caption">
+                        <h3>TEDx Stage</h3>
+                        <p>Delivering talk on community trust in healthcare</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to receive notifications of new media appearances and interviews</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Machange Insights</h3>
+                    <p>Thought leadership and practical strategies for healthcare leaders, policymakers, and academic administrators.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="media.html">Media</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Media Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Videos</a></li>
+                        <li><a href="#">Podcasts</a></li>
+                        <li><a href="#">Press Coverage</a></li>
+                        <li><a href="#">Photo Gallery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Email: dmachange@leadership.com</p>
+                    <p>Phone: (255) XXX-XXXXXX</p>
+                    <p>For media inquiries: media@machange.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 David Machange Leadership Insights. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+    <!-- Mobile Menu Toggle -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

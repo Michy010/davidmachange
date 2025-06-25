@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Speaking Engagements | Hon. David Machange</title>
+    <style>
+        /* Global Styles - Consistent with Homepage */
+        :root {
+            --primary-color: #1a5276;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--accent-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+        
+        /* Header Styles - Consistent with Homepage */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--dark-color);
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        nav ul li a.active {
+            color: var(--accent-color);
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        /* Hamburger Menu - Consistent with Homepage */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            z-index: 99;
+            padding: 20px 0;
+            transform: translateY(-150%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            transform: translateY(0);
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+        
+        .page-header p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .breadcrumb {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-top: 20px;
+        }
+        
+        .breadcrumb li {
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .breadcrumb li:after {
+            content: '/';
+            position: absolute;
+            right: -15px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .breadcrumb li:last-child:after {
+            display: none;
+        }
+        
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .breadcrumb a:hover {
+            color: white;
+        }
+        
+        /* Speaking Intro */
+        .speaking-intro {
+            padding: 80px 0;
+            text-align: center;
+            background-color: white;
+        }
+        
+        .speaking-intro .container {
+            max-width: 800px;
+        }
+        
+        .speaking-intro h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .speaking-intro p {
+            margin-bottom: 30px;
+            color: var(--text-light);
+            font-size: 18px;
+        }
+        
+        /* Keynote Topics */
+        .keynote-topics {
+            padding: 60px 0;
+            background-color: #f5f7fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .topic-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .topic-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--accent-color);
+            font-size: 28px;
+        }
+        
+        .topic-card h3 {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .topic-card p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .topic-card ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .topic-card li {
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        /* Speaking Formats */
+        .speaking-formats {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .formats-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        
+        .format-card {
+            flex: 1;
+            min-width: 250px;
+            max-width: 350px;
+            background-color: #f5f7fa;
+            border-radius: 8px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .format-card:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .format-card:hover h3,
+        .format-card:hover p,
+        .format-card:hover .format-icon {
+            color: white;
+        }
+        
+        .format-icon {
+            font-size: 40px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+        
+        .format-card h3 {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+        
+        .format-card p {
+            color: var(--text-light);
+            transition: color 0.3s;
+        }
+        
+        /* Upcoming Events */
+        .upcoming-events {
+            padding: 60px 0;
+            background-color: #f5f7fa;
+        }
+        
+        .events-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .event-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .event-date {
+            flex: 0 0 100px;
+            text-align: center;
+            padding-right: 30px;
+        }
+        
+        .event-day {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--accent-color);
+            line-height: 1;
+        }
+        
+        .event-month {
+            font-size: 16px;
+            color: var(--primary-color);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .event-year {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .event-details {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .event-details h3 {
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        
+        .event-meta span {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            color: var(--text-light);
+            font-size: 14px;
+        }
+        
+        .event-meta i {
+            margin-right: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .event-details p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+        
+        .no-events {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-light);
+            font-size: 18px;
+        }
+        
+        /* Past Engagements */
+        .past-engagements {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .engagement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .engagement-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .engagement-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .engagement-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .engagement-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .engagement-card:hover .engagement-image img {
+            transform: scale(1.1);
+        }
+        
+        .engagement-content {
+            padding: 25px;
+            background-color: white;
+        }
+        
+        .engagement-content h3 {
+            font-size: 20px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .engagement-meta {
+            display: flex;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        .engagement-meta span {
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .engagement-meta i {
+            margin-right: 5px;
+            color: var(--secondary-color);
+        }
+        
+        /* Request Form */
+        .request-form {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-container h2 {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px 20px;
+        }
+        
+        .form-group {
+            flex: 1;
+            min-width: 250px;
+            padding: 0 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+        }
+        
+        .form-submit {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 60px 0;
+            background-color: #f5f7fa;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .testimonial-card:before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 60px;
+            color: rgba(231, 76, 60, 0.1);
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+        
+        /* Footer - Consistent with Homepage */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background-color: var(--accent-color);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+            list-style: none;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 15px;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .event-card {
+                flex-direction: column;
+            }
+            
+            .event-date {
+                flex: none;
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+                padding-right: 0;
+            }
+            
+            .event-day {
+                margin-right: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .page-header h1 {
+                font-size: 36px;
+            }
+            
+            .page-header p {
+                font-size: 16px;
+            }
+            
+            .section-title h2 {
+                font-size: 30px;
+            }
+            
+            .form-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Machange<span>Insights</span></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="speaking.html" class="active">Speaking</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="speaking.html" class="active">Speaking</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Speaking Engagements</h1>
+            <p>Invite Hon. David Machange to share his expertise at your next conference, symposium, or leadership event</p>
+            <ul class="breadcrumb">
+                <li><a href="index.html">Home</a></li>
+                <li>Speaking</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Speaking Intro -->
+    <section class="speaking-intro">
+        <div class="container">
+            <h2>Transform Your Event With Proven Leadership Insights</h2>
+            <p>With over two decades of experience in healthcare leadership, public policy, and academic administration, Hon. David Machange brings unique perspectives that educate, inspire, and challenge audiences.</p>
+            <p>His dynamic presentations combine rigorous research with real-world experience from serving as Tanzania's Health Minister and leading MUHAS through transformational change.</p>
+            <a href="#request-form" class="btn">Request Speaker</a>
+        </div>
+    </section>
+
+    <!-- Keynote Topics -->
+    <section class="keynote-topics">
+        <div class="container">
+            <div class="section-title">
+                <h2>Keynote Topics</h2>
+            </div>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <div class="topic-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Healthcare System Transformation</h3>
+                    <p>Lessons from reforming Tanzania's healthcare infrastructure during the pandemic and beyond.</p>
+                    <ul>
+                        <li>Digital health innovation</li>
+                        <li>Workforce development strategies</li>
+                        <li>Supply chain optimization</li>
+                        <li>Universal health coverage pathways</li>
+                    </ul>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Academic Leadership in Crisis</h3>
+                    <p>Leading higher education institutions through periods of disruption and change.</p>
+                    <ul>
+                        <li>Blended learning models</li>
+                        <li>Research capacity building</li>
+                        <li>Stakeholder alignment</li>
+                        <li>Financial sustainability</li>
+                    </ul>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Evidence-Based Policy Making</h3>
+                    <p>Bridging the gap between research and policy implementation for measurable impact.</p>
+                    <ul>
+                        <li>Data-driven decision making</li>
+                        <li>Stakeholder engagement frameworks</li>
+                        <li>Policy implementation science</li>
+                        <li>Monitoring and evaluation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Speaking Formats -->
+    <section class="speaking-formats">
+        <div class="container">
+            <div class="section-title">
+                <h2>Speaking Formats</h2>
+            </div>
+            <div class="formats-container">
+                <div class="format-card">
+                    <div class="format-icon">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                    <h3>Keynote Address</h3>
+                    <p>45-60 minute presentations followed by Q&A, ideal for conferences and large events.</p>
+                </div>
+                <div class="format-card">
+                    <div class="format-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Executive Workshops</h3>
+                    <p>Half-day or full-day intensive sessions for leadership teams and senior managers.</p>
+                </div>
+                <div class="format-card">
+                    <div class="format-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Fireside Chats</h3>
+                    <p>Intimate, conversational formats moderated by event hosts or journalists.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upcoming Events -->
+    <section class="upcoming-events">
+        <div class="container">
+            <div class="section-title">
+                <h2>Upcoming Events</h2>
+            </div>
+            <div class="events-list">
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="event-day">15</div>
+                        <div class="event-month">Oct</div>
+                        <div class="event-year">2023</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Africa Health Leadership Summit</h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</span>
+                            <span><i class="fas fa-clock"></i> 9:00 AM - 11:00 AM</span>
+                        </div>
+                        <p>Keynote address on "Building Resilient Health Systems in Post-Pandemic Africa"</p>
+                        <a href="#" class="btn btn-outline">Event Details</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <div class="event-day">28</div>
+                        <div class="event-month">Nov</div>
+                        <div class="event-year">2023</div>
+                    </div>
+                    <div class="event-details">
+                        <h3>Global Higher Education Forum</h3>
+                        <div class="event-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> Virtual Event</span>
+                            <span><i class="fas fa-clock"></i> 2:00 PM - 3:30 PM GMT</span>
+                        </div>
+                        <p>Panel discussion on "The Future of Health Sciences Education in Developing Economies"</p>
+                        <a href="#" class="btn btn-outline">Event Details</a>
+                    </div>
+                </div>
+                <div class="no-events">
+                    <p>More events being scheduled - check back soon or <a href="#">subscribe</a> for updates</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Past Engagements -->
+    <section class="past-engagements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Past Engagements</h2>
+            </div>
+            <div class="engagement-grid">
+                <div class="engagement-card">
+                    <div class="engagement-image">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="World Health Summit">
+                    </div>
+                    <div class="engagement-content">
+                        <h3>World Health Summit 2022</h3>
+                        <div class="engagement-meta">
+                            <span><i class="far fa-calendar"></i> March 15, 2022</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Berlin, Germany</span>
+                        </div>
+                        <p>Keynote on "Digital Transformation in African Healthcare Systems"</p>
+                        <a href="#" class="read-more">Watch Video <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="engagement-card">
+                    <div class="engagement-image">
+                        <img src="https://images.unsplash.com/photo-1524179091875-bf99a9a6af57?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="TEDxDar">
+                    </div>
+                    <div class="engagement-content">
+                        <h3>TEDxDar 2021</h3>
+                        <div class="engagement-meta">
+                            <span><i class="far fa-calendar"></i> August 8, 2021</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Dar es Salaam, Tanzania</span>
+                        </div>
+                        <p>"Why Community Trust is the Foundation of Effective Health Policy"</p>
+                        <a href="#" class="read-more">Watch Video <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="engagement-card">
+                    <div class="engagement-image">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="African Leadership Forum">
+                    </div>
+                    <div class="engagement-content">
+                        <h3>African Leadership Forum 2021</h3>
+                        <div class="engagement-meta">
+                            <span><i class="far fa-calendar"></i> June 22, 2021</span>
+                            <span><i class="fas fa-map-marker-alt"></i> Johannesburg, South Africa</span>
+                        </div>
+                        <p>Workshop on "Decision-Making Under Pressure: Lessons from Pandemic Leadership"</p>
+                        <a href="#" class="read-more">View Photos <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What People Say</h2>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Hon. Machange's keynote at our health summit was the highlight of the event. His combination of policy expertise and practical leadership experience provided exactly the insights our audience needed.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Dr. Amina Juma">
+                        </div>
+                        <div class="author-info">
+                            <h4>Dr. Amina Juma</h4>
+                            <p>Director, Africa Health Initiative</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>The workshop David conducted for our executive team transformed how we approach institutional change. His frameworks for stakeholder engagement are now core to our strategic planning process.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Prof. Kwame Osei">
+                        </div>
+                        <div class="author-info">
+                            <h4>Prof. Kwame Osei</h4>
+                            <p>Vice Chancellor, Accra University</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        <p>Rarely have we hosted a speaker who so effectively bridges academic rigor with actionable insights. David's ability to tailor complex concepts to our audience's needs was exceptional.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Williams">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Williams</h4>
+                            <p>Conference Chair, Global Health Leaders Forum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Request Form -->
+    <section class="request-form" id="request-form">
+        <div class="container">
+            <div class="form-container">
+                <h2>Request Hon. Machange to Speak</h2>
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="organization">Organization</label>
+                            <input type="text" id="organization" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-name">Event Name</label>
+                        <input type="text" id="event-name" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="event-date">Event Date</label>
+                            <input type="date" id="event-date">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-location">Event Location</label>
+                            <input type="text" id="event-location">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="event-type">Event Type</label>
+                        <select id="event-type">
+                            <option value="">Select event type</option>
+                            <option value="conference">Conference</option>
+                            <option value="corporate">Corporate Event</option>
+                            <option value="university">University Lecture</option>
+                            <option value="workshop">Workshop/Training</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="topics">Topics of Interest</label>
+                        <input type="text" id="topics" placeholder="Healthcare reform, leadership, etc.">
+                    </div>
+                    <div class="form-group">
+                        <label for="details">Additional Details</label>
+                        <textarea id="details" placeholder="Tell us about your event, audience, and expectations"></textarea>
+                    </div>
+                    <div class="form-submit">
+                        <button type="submit" class="btn">Submit Request</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Machange Insights</h3>
+                    <p>Thought leadership and practical strategies for healthcare leaders, policymakers, and academic administrators.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="speaking.html">Speaking</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Categories</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Healthcare</a></li>
+                        <li><a href="#">Education</a></li>
+                        <li><a href="#">Public Policy</a></li>
+                        <li><a href="#">Leadership</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Email: dmachange@leadership.com</p>
+                    <p>Phone: (255) XXX-XXXXXX</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 David Machange Leadership Insights. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <!-- Mobile Menu Toggle -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
